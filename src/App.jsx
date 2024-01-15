@@ -1,13 +1,11 @@
 import './App.css'
-import Card from './components/Card/Card'
 import Exercise from './components/Exercise/Exercise'
 
 function App() {
 
   return (
-    <div className='grid grid-cols-4 bg-slate-100'>
+    <div>
       <Exercise/>
-      <Card/>
     </div>
   )
 }

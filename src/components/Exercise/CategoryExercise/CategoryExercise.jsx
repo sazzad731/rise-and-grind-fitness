@@ -2,6 +2,7 @@
 
 const CategoryExercise = (props) => {
     const {name, id, picture, about, age, time} = props.items
+    const addToList = props.addToList;
     const slicedAbout = about.slice(0, 100)
     return (
         <div>
@@ -11,7 +12,7 @@ const CategoryExercise = (props) => {
                 <p className=" text-gray-400 mb-3">{slicedAbout}</p>
                 <p className=" text-lg font-medium mb-3">For Age : {age}</p>
                 <p className=" text-lg font-medium mb-3">Time required : {time}s</p>
-                <button className="w-full h-12 font-medium text-white bg-indigo-500 rounded-lg">Add to list</button>
+                <button onClick={()=>addToList(id)} className="w-full h-12 font-medium text-white bg-indigo-500 rounded-lg">Add to list</button>
             </div>
         </div>
     );
