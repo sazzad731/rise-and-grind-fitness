@@ -17,7 +17,12 @@ const Exercise = () => {
 
     useEffect(()=>{
         const getBreakFromLocal = localStorage.getItem("Break-time")
-        addBreakToCard(getBreakFromLocal)
+        if(getBreakFromLocal === null){
+            addBreakToLocal(0);
+        }else{
+            addBreakToCard(getBreakFromLocal)
+        }
+        console.log(getBreakFromLocal)
     },[breakTime])
 
     let time = times;
@@ -27,7 +32,7 @@ const Exercise = () => {
         setTimes(time)
     }
 
-    const addBreakToCard = (value)=>{
+    const addBreakToCard = (value=0)=>{
         addBreakToLocal(value)
         setBreakTime(value)
     }
