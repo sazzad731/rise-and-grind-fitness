@@ -3,6 +3,7 @@ import ExerciseHeader from '../ExerciseHeader/ExerciseHeader';
 import { useEffect } from 'react';
 import CategoryExercise from './CategoryExercise/CategoryExercise';
 import Card from '../Card/Card';
+import { addBreakToLocal } from '../../utilities/localStoreg';
 
 const Exercise = () => {
     const [category, setCategory] = useState([]);
@@ -14,6 +15,11 @@ const Exercise = () => {
         .then(data=>setCategory(data))
     },[])
 
+    useEffect(()=>{
+        const getBreakFromLocal = localStorage.getItem("Break-time")
+        addBreakToCard(getBreakFromLocal)
+    },[breakTime])
+
     let time = times;
     const addToList = (id)=>{
         const selectedItem = category.find(item=>item.id === id);
@@ -22,6 +28,7 @@ const Exercise = () => {
     }
 
     const addBreakToCard = (value)=>{
+        addBreakToLocal(value)
         setBreakTime(value)
     }
 
